@@ -7,36 +7,38 @@ Author URI: http://themeforest.net/user/ingridk
 //Strict Mode 
 (function($) {
     "use strict";
-	
-		
-    //Document ready function
-    $(document).ready(function() {	
-	
-	//Open street  Map
-	var mapcanvas = document.getElementById("map-canvas");
-	if (mapcanvas) {
-		var coord = [-33.4489, -70.6693]; 
-	
-		var map = L.map('map-canvas', { scrollWheelZoom: false }).setView(coord, 19);
-	
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 22,
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-		}).addTo(map);
-	
-		L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-			attribution: ''
-		}).addTo(map);
-	
-		var customIcon = L.icon({
-			iconUrl: 'img/mapmarker.png',
-			iconSize: [64, 64], // Tamaño del icono
-			iconAnchor: [32, 63] // Punto del icono que corresponderá a la ubicación del marcador
-		});
-	
-		var marker = L.marker(coord, { icon: customIcon }).addTo(map);
-	}
-		
+    
+    // Document ready function
+    $(document).ready(function() {  
+    
+    // Open street Map
+    var mapcanvas = document.getElementById("map-canvas");
+    if (mapcanvas) {
+        // Nueva coordenada
+        var coord = [-33.260006, -70.760894]; 
+    
+        var map = L.map('map-canvas', { scrollWheelZoom: false }).setView(coord, 19);
+    
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 14,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: ''
+        }).addTo(map);
+    
+        var customIcon = L.icon({
+            iconUrl: 'img/mapmarker.png',
+            iconSize: [64, 64], // Tamaño del icono
+            iconAnchor: [12, 63] // Punto del icono que corresponderá a la ubicación del marcador
+        });
+    
+        var marker = L.marker(coord, { icon: customIcon }).addTo(map);
+    }
+    
+
+
 		
 		//Load WOW Animations
 
